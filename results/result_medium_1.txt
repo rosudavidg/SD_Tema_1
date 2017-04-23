@@ -1,0 +1,12 @@
+5
+5
+Alin-10;Andrei-4;
+Alina-7;
+Ana-6;
+Alex-5;
+3
+Alin-10;
+Ghiseul 1 nu are nicio persoana in asteptare.
+Ana-6;
+Alex-5;
+0

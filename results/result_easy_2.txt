@@ -1,0 +1,19 @@
+6
+3
+Ana-6;Adi-5;Andrei-4;
+3
+Alin-10;Alina-7;Alex-5;
+2
+1
+Adi-5;
+1
+Alex-5;
+1
+0
+Ghiseul 1 nu are nicio persoana in asteptare.
+3
+2
+Stefania-10;Adi-5;
+1
+David-10;
+0

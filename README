@@ -1,0 +1,105 @@
+************************
+*Nume:    Rosu         *
+*Prenume: Gabriel-David*
+*Seria:   CD           *
+*Grupa:   311          *
+*Tema:    1            *
+************************
+
+[!] Folosesc variabila globala length, care retine numarul de ghisee
+deschise, initial 0. La apeluri de functii specifice, aceasta se va
+modifica.
+
+[~] Descrierea modului de implementare a functiilor:
+
+(*) calculeaza_numar_total_oameni
+  ->Initializez variabila numar_oameni_total cu 0.
+  ->Daca nu exista niciun ghiseu deschis (ghisee este NULL), se returneaza 0
+  ->Daca exista cel putin un ghiseu deschis: pentru fiecare ghiseu se va calcula
+numarul de oameni. Daca ghisee[i]->primul este NULL, atunci ghiseul nu are
+nicio persoana. Altfel, se va merge pana cand p->urmator nu este NULL.
+  ->Numarul final de persoane se returneaza la sfarsitul functiei.
+*Varianta alternativa(cea folosita):
+  ->Folosesc functia calculeaza_numar_oameni_ghiseu si adun numarul returnat de
+aceasta pentru fiecare ghiseu in variabila numar_oameni_total.
+
+(*) inchide_ghisee
+  ->Pentru fiecare ghiseu, daca acesta are cel putin o persoana, se
+elibereaza memoria pentru fiecare persoana.
+  ->Se elibereaza memoria pentru toti pointer-ii catre prima persoana din
+fiecare ghiseu.
+  ->Numarul de ghisee devine 0. (length)
+
+(*) adauga_persoana
+  ->Aloc memorie pentru un nod nou, pentru un sir de caractere de dimensiunea
+celui primit ca parametru + 1(nume + '\0').
+  ->Daca nu exista nicio persoana la ghiseul <numar_ghiseu>, atunci noua
+persoana va fi prima(dar si ultima). Apelez "return ;" pentru a inchide functia
+fortat.
+  ->Daca exista cel putin o persoana, atunci voi parcuge lista cat timp
+prioritatea persoanei la care ma aflu este mai mare strict decat cea a
+persoanei pe care trebuie sa o adaug. Astfel, la sfarsit voi fi pozitionat
+pe o persoana cu prioritatea mai mica sau egala decat cea a persoanei
+care trebuie inserata(sau pe prima sau pe NULL). Daca nu am ajuns la sfarsit
+si daca prioritatile celor doua persoane sunt egale, atunci cat timp
+numele primei va fi "mai mic" decat numele persoanei de inserat si vor
+avea aceleasi prioritati, continui cautarea. La sfarsit, voi fi pozitionat
+fie pe o persoana, fie pe NULL. Daca sunt pe NULL, atunci persoana trebuie
+adaugata la final. Daca sunt pe o persoana, atunci persoana de inserat
+trebuie adaugata la inceputul listei. Altfel, persoana se va insera undeva
+intre alte doua persoane.(cea din urma fiind cea pe care sunt pozitionat).
+
+(*) deschide_ghisee
+  ->Daca nu am niciun ghiseu deschis, atunci voi aloca memorie pentru N
+ghisee si voi face length egal cu N.
+  ->Daca am cel putin un ghiseu deschis, atunci voi aloca memorie pentru
+un nou vector de ghisee, cu dimensiunea 1. (ghiseu_temp, cu un singur ghiseu).
+Parcurg tot ghiseul initial si adaug cu ajutorul functiei adauga_persoana
+fiecare persoana in noul ghiseu. Astfel, la sfarsit voi avea toate persoanele
+ordonate corespunzator. Eliberez memoria pentru persoanele din ghiseele
+initiale, fac length 0 si apelez functia deschide_ghisee pentru a aloca
+dinamic memorie pentru noile ghisee. Adaug fiecare persoana din ghiseul
+temporar, in ordine, in noile ghisee.
+
+(*) sterge_persoana
+  ->Daca numarul ghiseului primit ca parametru este mai mare sau egal decat
+length, atunci nu exista ghiseul respectiv, si se va inchide fortat functia,
+cu "return ;".
+  ->Daca ghiseul exista si este gol, inchid functia fortat.
+  ->Daca ghiseul exista si are cel putin o persoana, caut persoana care
+trebuie stearsa.
+  ->Dupa cautare, daca persoana nu exista, se va inchide functia. (p == NULL)
+  ->Daca exista, atunci trebuie stearsa in functie de pozitia ei in ghiseu.
+
+(*) sterge_primii_oameni
+  ->Pentru fiecare ghiseu (<length> ghisee), daca ghiseul nu este gol,
+se va sterge primul element din ghiseu si sa va elibera memoria aferenta lui.
+
+(*) calculeaza_numar_oameni_ghiseu
+  ->Daca nu exista ghiseul, se retureaza -1.
+  ->Daca ghiseul este gol, se returneaza 0.
+  ->Daca ghiseul are o singura persoana se returneaza 1.
+  ->Altfel, se calculeaza numarul persoanelor, pana cand se ajunge la NULL,
+returnandu-se la final numarul acestora.
+
+(*) gaseste_pozitie_persoana
+  ->Daca numarul ghiseului nu este valid, se va returna -1.
+  ->Se cauta persoana dupa nume si dupa prioritate.
+  ->Daca este gasita, se va returna pozitia acesteia, altfel se va returna -1.
+
+(*) gaseste_persoana_din_fata
+  ->Daca numarul ghiseului nu este valid, nu exista nicio persoana la ghiseu
+sau persoana este prima, atunci persoana din fata acesteia nu exista si pentru
+toate cele trei cazuri se va returna sirul "Nu exista.".
+  ->Altfel, se cauta persoana. Daca este gasita, se returneaza numele persoanei
+din fata. Altfel, se returneaza sirul "Nu exista".
+
+(*) afiseaza_rand_ghiseu
+  ->Daca numarul ghiseului nu este valid, se va inchide fortat functia.
+  ->Daca ghiseul are cel putin un element, cat timp nu ajung la sfarsitul listei
+ghiseului, afisez fiecare element (nume si prioritate).
+  ->Daca ghiseul este gol, se va afisa acest lucru.
+
+[~] "All heap blocks were freed -- no leaks are possible" :D
+
+                              * MARTIE 2017 *

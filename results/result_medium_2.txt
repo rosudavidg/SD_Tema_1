@@ -1,0 +1,24 @@
+1
+0
+1
+2
+Ana
+Nu exista.
+Adriana
+Alina
+Ana-6;Andrei-4;
+Alin-9;Alina-7;Alex-5;
+Adriana-10;Andreea-8;
+Suzana-11;
+8
+Suzana-11;Alin-9;Alina-7;Alex-5;
+Adriana-10;Andreea-8;Ana-6;Andrei-4;
+8
+4
+Suzana-11;Alex-5;
+Adriana-10;Andreea-8;
+Alex-5;
+Andreea-8;
+Ghiseul 0 nu are nicio persoana in asteptare.
+Ghiseul 1 nu are nicio persoana in asteptare.
+0
